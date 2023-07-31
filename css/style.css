@@ -1,3 +1,20 @@
+@-webkit-keyframes tilt-shaking {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 @keyframes tilt-shaking {
   0% {
     transform: rotate(0deg);
@@ -6,7 +23,7 @@
     transform: rotate(5deg);
   }
   50% {
-    transform: rotate(0eg);
+    transform: rotate(0deg);
   }
   75% {
     transform: rotate(-5deg);
@@ -194,7 +211,16 @@ small {
 /* https://stackoverflow.com/questions/12991164/maintaining-the-final-state-at-end-of-a-css-animation */
 .fade-in {
   opacity: 1;
-  animation: fade 0.5s forwards;
+  -webkit-animation: fade 0.5s forwards;
+          animation: fade 0.5s forwards;
+}
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @keyframes fade {
   0% {
@@ -248,7 +274,8 @@ small {
 }
 
 .letter:hover, #play-btn:hover, #rules-btn:hover, #close-rules:hover, #play-again:hover {
-  animation: tilt-shaking 0.5s linear;
+  -webkit-animation: tilt-shaking 0.5s linear;
+          animation: tilt-shaking 0.5s linear;
 }
 
 .disabled-letter {
@@ -271,7 +298,8 @@ small {
 }
 
 .disabled-letter:hover {
-  animation: none;
+  -webkit-animation: none;
+          animation: none;
 }
 
 @media (min-width: 300px) and (max-width: 700px) {
