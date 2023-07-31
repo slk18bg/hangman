@@ -1,0 +1,306 @@
+$primary_color: #D92121;
+$secondary_color: #002395;
+$div_bg_color: #64ABE3;
+
+// font-family: "Bleach";
+
+@mixin button-styles() {
+
+    border: solid #62974C 5px;
+    border-radius: 8px;
+    background-color: #FEE295;
+    color: #866244;
+    font-size: 2.8rem;
+    font-family: 'Permanent Marker', cursive;
+    margin-bottom: 25px;
+    padding: 10px 20px;
+    //padding-left: 20px;
+}
+
+
+@mixin section-styling() {
+    border: double #FFFFFF 8px;
+    border-radius: 8px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    background-color: $div_bg_color;
+    padding: 40px;
+}
+
+
+// animation for buttons
+// source: https://unused-css.com/blog/css-shake-animation/
+@-webkit-keyframes tilt-shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+  }
+@keyframes tilt-shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+html {
+    font-size:16px;
+    box-sizing: border-box;
+  }
+  
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+body {
+    margin:0px;
+    padding: 0px;
+    border: none;
+    font-family: 'Pontano Sans', sans-serif;
+    background-color: #FFFFFF;
+    background-image: url("../images/backgrounds/beach-bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+main {
+    padding: 20px;
+    flex: 1;
+}
+  
+header, footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgb(243,244,244);
+    background: linear-gradient(4deg, rgba(243,244,244,1) 0%, rgba(254,226,149,0.9973802395209581) 100%);
+    height: 90px;
+}
+
+
+h1, h2, h3 {
+    color: $primary_color;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 3.5rem;
+    font-weight: 700;
+    -webkit-text-stroke-color: blue;
+    -webkit-text-stroke-width: .7px;
+}
+
+small {
+    font-size: 1.2rem;
+}
+
+#wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    box-shadow: 0px 5px 8px rgb(179, 179, 179);
+}
+
+
+#start-game {
+
+    @include section-styling();
+    
+    h2 {
+        text-align: center;
+        font-size: 3.5rem;
+    }
+    #play-btn, #rules-btn {
+        @include button-styles();
+    }
+}
+
+#rules-popup {
+    @include section-styling();
+    padding: 10px;
+
+    h3 {
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+    #close-rules {
+        @include button-styles();
+        //@include button-hover();
+        margin-top: 15px;
+    
+    }
+    p {
+        font-size: 1.3rem;
+        margin-left: 15px;
+    }
+    img {
+        max-width: 50%;
+        height: auto;
+    }
+    position: absolute;
+    top: 5%;
+    left: 29%;
+    width: 650px;
+
+    display: none;
+
+}
+
+#play-game {
+    @include section-styling();
+    #main-display {
+        justify-content: center;
+        img {
+            max-width: 80%;
+            height: auto;
+            margin-left: 10%;
+        }
+    }
+
+    #letter-spaces {
+        font-size: 3rem;
+        line-height: 3rem;
+        margin-top: 10px;
+    }
+
+    #word-hint, #tries-left {
+        font-size: 1.5rem;
+        margin-top: 15px;
+    }
+
+    .letter {
+        @include button-styles();
+        font-size: 2.4rem;
+        margin-right: 8px;
+        padding: 4px 8px;
+    }
+
+    #letter-btns {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+
+    }
+}
+
+/* https://stackoverflow.com/questions/30125705/css-how-to-make-an-element-fade-in-and-then-fade-out */
+/* https://stackoverflow.com/questions/12991164/maintaining-the-final-state-at-end-of-a-css-animation */
+.fade-in {
+    opacity: 1;
+    -webkit-animation: fade .5s forwards;
+            animation: fade .5s forwards;
+}
+
+
+@-webkit-keyframes fade {
+  0% { opacity: 0 }
+  100% {opacity: 1;}
+}
+
+
+@keyframes fade {
+  0% { opacity: 0 }
+  100% {opacity: 1;}
+}
+
+#result {
+    @include section-styling();
+    padding: 10px;
+    position: absolute;
+    top: 20%;
+    left: 22%;
+    width: 840px;
+    height: 850px;
+    
+    h3 {
+        padding: 5px;
+        margin: 5px;
+    }
+    img {
+        max-width: 75%;
+        height: auto;
+    }
+    #play-again {
+        @include button-styles();
+        font-size: 2.5rem;
+        margin-top: 20px;
+    }
+    p {
+        margin-top: 10px;
+        font-size: 1.5rem;
+    }
+
+    display: none;
+}
+
+.letter:hover, #play-btn:hover, #rules-btn:hover, #close-rules:hover, #play-again:hover {
+   // @include button-hover();
+    -webkit-animation: tilt-shaking 0.5s linear;
+            animation: tilt-shaking 0.5s linear;
+}
+
+.disabled-letter {
+    @include button-styles();
+    // @include letter-button-styles();
+    border-color:#a2dc89;
+    background-color: #f0e3c1;
+    color: #c4aa95;
+    font-size: 38.4px;
+    margin-right: 8px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    padding: 4px 8px;
+}
+.disabled-letter:hover{
+    -webkit-animation: none;
+            animation: none;
+}
+
+@media (min-width: 300px) and (max-width: 700px) {
+    #result {
+        top: 16%;
+        left: 13%;
+        width: 300px;
+        height: 700px;
+        display: none;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1400px) {
+    #result {
+        top: 16%;
+        left: 13%;
+        width: 600px;
+        height: 700px;
+        display: none;
+    }
+}
+
+@media (min-width: 1550px) {
+
+    #rules-popup {
+        top: 10%;
+        left: 29%;
+        width: 750px;
+    
+        display: none;
+    }
+
+    #result {
+        top: 16%;
+        left: 28%;
+        width: 900px;
+        height: 850px;
+        display: none;
+    }
+}

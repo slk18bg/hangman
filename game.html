@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <!--
+    <link href="https://db.onlinewebfonts.com/c/3a43d10a9542ef4005c8b4d2eb95fea5?family=Bleach" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Pontano+Sans&family=Rock+Salt&display=swap" rel="stylesheet">
+
+    <!--<script src="scripts/Letters.js" defer></script>-->
+    <script src="scripts/Hangman.js" defer></script>
+    <script src="scripts/game.js" defer></script>
+    
+    <title>Hangman</title>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <header>
+            <h1>HANGMAN</h1>
+        </header>
+        <main>
+                <div id="play-game">
+                    <div id="main-display">
+                        <img id="game-img" src="images/wakame-creator/bya-wak-whole.jpg" alt="captain with his creation whole">
+                    </div>
+                    <div id="letter-spaces"></div>
+                    <div id="word-hint">Hint:</div>
+                    <div id="tries-left"></div>
+                    <div id="letter-btns"></div>
+                </div>
+
+                <div id="result">
+                    <h3 id="result-h3"></h3>
+                    <p id="result-word"></p>
+                    <p id="result-p"></p>
+                    <img id="result-img" src="" alt="">
+                    <button id="play-again">Play Again?</button>
+                </div>
+        </main>
+        <footer>
+            <small>Copyright&copy; Sheikh Khaled 2023</small>
+        </footer>
+    
+    </div>
+
+</body>
+</html>

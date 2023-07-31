@@ -1,0 +1,309 @@
+@keyframes tilt-shaking {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0eg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+html {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  font-family: "Pontano Sans", sans-serif;
+  background-color: #FFFFFF;
+  background-image: url("../images/backgrounds/beach-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+main {
+  padding: 20px;
+  flex: 1;
+}
+
+header, footer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(243, 244, 244);
+  background: linear-gradient(4deg, rgb(243, 244, 244) 0%, rgba(254, 226, 149, 0.9973802395) 100%);
+  height: 90px;
+}
+
+h1, h2, h3 {
+  color: #D92121;
+  font-family: "Permanent Marker", cursive;
+  font-size: 3.5rem;
+  font-weight: 700;
+  -webkit-text-stroke-color: blue;
+  -webkit-text-stroke-width: 0.7px;
+}
+
+small {
+  font-size: 1.2rem;
+}
+
+#wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  box-shadow: 0px 5px 8px rgb(179, 179, 179);
+}
+
+#start-game {
+  border: double #FFFFFF 8px;
+  border-radius: 8px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+  background-color: #64ABE3;
+  padding: 40px;
+}
+#start-game h2 {
+  text-align: center;
+  font-size: 3.5rem;
+}
+#start-game #play-btn, #start-game #rules-btn {
+  border: solid #62974C 5px;
+  border-radius: 8px;
+  background-color: #FEE295;
+  color: #866244;
+  font-size: 2.8rem;
+  font-family: "Permanent Marker", cursive;
+  margin-bottom: 25px;
+  padding: 10px 20px;
+}
+
+#rules-popup {
+  border: double #FFFFFF 8px;
+  border-radius: 8px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+  background-color: #64ABE3;
+  padding: 40px;
+  padding: 10px;
+  position: absolute;
+  top: 5%;
+  left: 29%;
+  width: 650px;
+  display: none;
+}
+#rules-popup h3 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+#rules-popup #close-rules {
+  border: solid #62974C 5px;
+  border-radius: 8px;
+  background-color: #FEE295;
+  color: #866244;
+  font-size: 2.8rem;
+  font-family: "Permanent Marker", cursive;
+  margin-bottom: 25px;
+  padding: 10px 20px;
+  margin-top: 15px;
+}
+#rules-popup p {
+  font-size: 1.3rem;
+  margin-left: 15px;
+}
+#rules-popup img {
+  max-width: 50%;
+  height: auto;
+}
+
+#play-game {
+  border: double #FFFFFF 8px;
+  border-radius: 8px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+  background-color: #64ABE3;
+  padding: 40px;
+}
+#play-game #main-display {
+  justify-content: center;
+}
+#play-game #main-display img {
+  max-width: 80%;
+  height: auto;
+  margin-left: 10%;
+}
+#play-game #letter-spaces {
+  font-size: 3rem;
+  line-height: 3rem;
+  margin-top: 10px;
+}
+#play-game #word-hint, #play-game #tries-left {
+  font-size: 1.5rem;
+  margin-top: 15px;
+}
+#play-game .letter {
+  border: solid #62974C 5px;
+  border-radius: 8px;
+  background-color: #FEE295;
+  color: #866244;
+  font-size: 2.8rem;
+  font-family: "Permanent Marker", cursive;
+  margin-bottom: 25px;
+  padding: 10px 20px;
+  font-size: 2.4rem;
+  margin-right: 8px;
+  padding: 4px 8px;
+}
+#play-game #letter-btns {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+/* https://stackoverflow.com/questions/30125705/css-how-to-make-an-element-fade-in-and-then-fade-out */
+/* https://stackoverflow.com/questions/12991164/maintaining-the-final-state-at-end-of-a-css-animation */
+.fade-in {
+  opacity: 1;
+  animation: fade 0.5s forwards;
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#result {
+  border: double #FFFFFF 8px;
+  border-radius: 8px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+  background-color: #64ABE3;
+  padding: 40px;
+  padding: 10px;
+  position: absolute;
+  top: 20%;
+  left: 22%;
+  width: 840px;
+  height: 850px;
+  display: none;
+}
+#result h3 {
+  padding: 5px;
+  margin: 5px;
+}
+#result img {
+  max-width: 75%;
+  height: auto;
+}
+#result #play-again {
+  border: solid #62974C 5px;
+  border-radius: 8px;
+  background-color: #FEE295;
+  color: #866244;
+  font-size: 2.8rem;
+  font-family: "Permanent Marker", cursive;
+  margin-bottom: 25px;
+  padding: 10px 20px;
+  font-size: 2.5rem;
+  margin-top: 20px;
+}
+#result p {
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+
+.letter:hover, #play-btn:hover, #rules-btn:hover, #close-rules:hover, #play-again:hover {
+  animation: tilt-shaking 0.5s linear;
+}
+
+.disabled-letter {
+  border: solid #62974C 5px;
+  border-radius: 8px;
+  background-color: #FEE295;
+  color: #866244;
+  font-size: 2.8rem;
+  font-family: "Permanent Marker", cursive;
+  margin-bottom: 25px;
+  padding: 10px 20px;
+  border-color: #a2dc89;
+  background-color: #f0e3c1;
+  color: #c4aa95;
+  font-size: 38.4px;
+  margin-right: 8px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  padding: 4px 8px;
+}
+
+.disabled-letter:hover {
+  animation: none;
+}
+
+@media (min-width: 300px) and (max-width: 700px) {
+  #result {
+    top: 16%;
+    left: 13%;
+    width: 300px;
+    height: 700px;
+    display: none;
+  }
+}
+@media (min-width: 701px) and (max-width: 1400px) {
+  #result {
+    top: 16%;
+    left: 13%;
+    width: 600px;
+    height: 700px;
+    display: none;
+  }
+}
+@media (min-width: 1550px) {
+  #rules-popup {
+    top: 10%;
+    left: 29%;
+    width: 750px;
+    display: none;
+  }
+  #result {
+    top: 16%;
+    left: 28%;
+    width: 900px;
+    height: 850px;
+    display: none;
+  }
+}
